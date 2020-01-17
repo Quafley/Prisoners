@@ -1,3 +1,5 @@
+import org.json.JSONObject;
+
 public class Prisoner {
 
     private String prisonerName;
@@ -14,51 +16,44 @@ public class Prisoner {
         this.inSollitary = inSollitary;
     }
 
+    public Prisoner(JSONObject jsonObject) {
+        this.prisonerName = jsonObject.getString("name");
+        this.crimeCommited = jsonObject.getString("crime");
+        this.prisonerAge = jsonObject.getInt("age");
+        this.sentencedFor = jsonObject.getInt("sentenced_for");
+        this.inSollitary = jsonObject.getBoolean("sollitary");
+    }
+
+
+
+
     @Override
     public String toString() {
         return "Name: " + getPrisonerName() + "\nCommited Crime: " + getCrimeCommited() + "\nPrisoners Age: " + getPrisonerAge() + "\nSentenced for: " + getSentencedFor() + " years." + "\nIn sollitary: " + isInSollitary() + "\n";
     }
 
-    //getters & setters
+    //getters
     public String getPrisonerName() {
         return prisonerName;
-    }
-
-    public void setPrisonerName(String prisonerName) {
-        this.prisonerName = prisonerName;
     }
 
     public String getCrimeCommited() {
         return crimeCommited;
     }
 
-    public void setCrimeCommited(String crimeCommited) {
-        this.crimeCommited = crimeCommited;
-    }
-
     public int getPrisonerAge() {
         return prisonerAge;
-    }
-
-    public void setPrisonerAge(int prisonerAge) {
-        this.prisonerAge = prisonerAge;
     }
 
     public int getSentencedFor() {
         return sentencedFor;
     }
 
-    public void setSentencedFor(int sentencedFor) {
-        this.sentencedFor = sentencedFor;
-    }
-
     public boolean isInSollitary() {
         return inSollitary;
     }
 
-    public void setInSollitary(boolean inSollitary) {
-        this.inSollitary = inSollitary;
-    }
+
 }
 
 
